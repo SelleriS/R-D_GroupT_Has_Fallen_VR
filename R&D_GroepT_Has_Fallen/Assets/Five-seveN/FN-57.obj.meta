@@ -1,0 +1,260 @@
+fileFormatVersion: 2
+guid: 8495fecd1d8b50e4f94c57e8db1b2709
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: object
+    100004: default
+    400000: //RootNode
+    400002: object
+    400004: default
+    2100000: Chamfers
+    2100002: Barrel1
+    2100004: Barrel2
+    2100006: Muzzle
+    2100008: Body_Top
+    2100010: Body_Bottom1_2
+    2100012: Body_Bottom
+    2100014: Screws
+    2100016: Riffle
+    2100018: Magazine_Fake
+    2100020: Trigger
+    2100022: Ejector
+    2100024: Attachment
+    2100026: Mag_Release_Right
+    2100028: Mag_Release_Left
+    2100030: Button3_Left
+    2100032: Button_Attachment_Left
+    2100034: RedLight_Right
+    2100036: Cylinder_Right
+    2100038: Triangles_Right
+    2100040: Button1_Right
+    2100042: RedLight_Left
+    2100044: Cylinder_Left
+    2100046: Triangles_Left
+    2100048: Button1_Left
+    2100050: Button2_Left
+    2100052: defaultMat
+    2300000: object
+    2300002: default
+    3300000: object
+    3300002: default
+    4300000: object
+    4300002: default
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Attachment
+    second: {fileID: 2100000, guid: 0d0e0170db736d74aaeceed2fd43285f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Barrel1
+    second: {fileID: 2100000, guid: a70e41821e33fe04cb705eb2d5efc121, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Barrel2
+    second: {fileID: 2100000, guid: 86180ca3081dfaa4c90aeb8e4335f121, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body_Bottom
+    second: {fileID: 2100000, guid: bed86594f87eb7341a1127c9f8e8d398, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body_Bottom1_2
+    second: {fileID: 2100000, guid: 6292b6a474cf7c445ae4901bbf17b1a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body_Top
+    second: {fileID: 2100000, guid: fa6cd71a4caba574caf54098e8fbd1b2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Button1_Left
+    second: {fileID: 2100000, guid: 42d4a0ce2202ac44d8266bc793630aa9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Button1_Right
+    second: {fileID: 2100000, guid: 2acd449b2dcbac3489737db48d7dc571, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Button2_Left
+    second: {fileID: 2100000, guid: 91bb134901ee1074280f00c8a9f19870, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Button3_Left
+    second: {fileID: 2100000, guid: 762d2eaef8395964aae22186d512fd81, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Button_Attachment_Left
+    second: {fileID: 2100000, guid: 2c0bc8ad98e439d4f994e3ab0539c095, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Chamfers
+    second: {fileID: 2100000, guid: 9206762c3f31503409a53b4fbe233ac4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cylinder_Left
+    second: {fileID: 2100000, guid: a96bfcd6fcc13534a9b22672c308cab1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cylinder_Right
+    second: {fileID: 2100000, guid: c76f1a876a4805f41bb425a60fb30043, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ejector
+    second: {fileID: 2100000, guid: 9f0efec1468daf74b8efc8b18c3bbc1d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mag_Release_Left
+    second: {fileID: 2100000, guid: 718d9430b2d299d499e6677efa7c0257, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mag_Release_Right
+    second: {fileID: 2100000, guid: f8bead9225cc3134ba9c729f2a7cabb3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Magazine_Fake
+    second: {fileID: 2100000, guid: 3b98a1f09b85c10438a87b28b3f89f45, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Muzzle
+    second: {fileID: 2100000, guid: 52c720374b046f0469804dcbad55b9d5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RedLight_Left
+    second: {fileID: 2100000, guid: b4434482e840d5743854140b786fe757, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RedLight_Right
+    second: {fileID: 2100000, guid: b86282ac7d2e1a04bb6c5c2b83918219, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Riffle
+    second: {fileID: 2100000, guid: 8331b47536338c54e9c631104108a19a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Screws
+    second: {fileID: 2100000, guid: 1e598cd44cfdac648a9451f2b0924c32, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Triangles_Left
+    second: {fileID: 2100000, guid: 886d40349bbe60c4298a06fa2111eff4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Triangles_Right
+    second: {fileID: 2100000, guid: 98b2af2ef76ae524d8993bbdef49710e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Trigger
+    second: {fileID: 2100000, guid: b39ba02d1085dbb4c85237cfc4daecef, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
