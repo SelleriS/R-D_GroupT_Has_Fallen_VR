@@ -188,7 +188,7 @@ public class UDPServer : MonoBehaviour
                         return;
                 }
                 // Create gameobject
-                weapon = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity);
+                weapon = Instantiate(prefab, GetNewPosition(), Quaternion.identity);
                 // Add IPaddress as key and new gameobject as value to the dictionary clients
                 clients.Add(clientEndpoint.Address, weapon);
                 // Set the weapon type field of the created weapon
@@ -248,5 +248,27 @@ public class UDPServer : MonoBehaviour
                 magManager.ChargeAllMags();
             }
         }
+    }
+
+    private Vector3 GetNewPosition()
+    {
+        Vector3 newPosition = new Vector3(0, 0, 0);
+        Boolean posAvailable = false;
+        while (!posAvailable)
+        {
+            posAvailable |= clients.Count == 0; // if clients dictionary is empty then posAvailable = true
+            foreach (KeyValuePair<IPAddress, GameObject> weapon in clients)
+            {
+                Vector3 position = weapon.Value.transform.position;
+                if (position == newPosition)
+                {
+                    newPosition += positionOffset;
+                    posAvailable = false;
+                    break;
+                }
+                posAvailable = true;
+            }
+        }
+        return newPosition;
     }
 }

@@ -35,7 +35,7 @@ public class WeaponInteraction57 : WeaponInteraction
     void Update()
     {
         //[EXTRA] Selector Switch
-        //SetSelectorSwitch(selectorSwitchPosition);
+        SetSelectorSwitch(selectorSwitchPosition);
 
         //[EXTRA] Movable pieces
         //SetMovablePieces(movablePiecesCurrentValue);
