@@ -11,6 +11,7 @@ public class VestInteraction : ElementInteraction
     public bool back;
     public bool left;
     public bool right;
+    public bool resetAll;
 
     // Start is called before the first frame update
     void Start()
@@ -37,11 +38,6 @@ public class VestInteraction : ElementInteraction
         messageToSend[3] = 0;
     }
 
-    private void UpdateMessageToSend()
-    {
-
-    }
-
     private void HitFront()
     {
         messageToSend[0] = 0xFF;
@@ -65,9 +61,39 @@ public class VestInteraction : ElementInteraction
     private void SensorTest()
     {
         if (front) { HitFront(); }
-        else if (back) { HitBack(); }
-        else if (left) { HitLeft(); }
-        else if (right) { HitRight(); }
+        if (back) { HitBack(); }
+        if (left) { HitLeft(); }
+        if (right) { HitRight(); }
+        if (resetAll)
+        {
+            ResetMessageToSend();
+            resetAll = false;
+        }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        Vector3 cameraRelative = this.transform.InverseTransformPoint(collision.transform.position);
+
+        if (cameraRelative.x > 0)
+        {
+            //Debug.Log("right");
+            HitRight();
+        }
+        if (cameraRelative.x < 0)
+        {
+            //Debug.Log("left");
+            HitLeft();
+        }
+        if (cameraRelative.z > 0)
+        {
+            //Debug.Log("front");
+            HitFront();
+        }
+        if (cameraRelative.x < 0)
+        {
+            //Debug.Log("back")}
+            HitBack();
+        }
+    }
 }
