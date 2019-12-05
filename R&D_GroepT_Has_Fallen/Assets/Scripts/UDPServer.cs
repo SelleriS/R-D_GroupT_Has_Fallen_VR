@@ -75,6 +75,12 @@ public class UDPServer : MonoBehaviour
         SendVestMessages();
     }
 
+    // To prevent SocketExeption error: Address already in use
+    void OnApplicationQuit()
+    {
+        client.Close();
+    }
+
     // Displays info on the GUI
     void OnGUI()
     {
