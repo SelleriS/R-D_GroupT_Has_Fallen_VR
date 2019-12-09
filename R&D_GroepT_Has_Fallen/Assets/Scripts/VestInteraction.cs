@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class VestInteraction : ElementInteraction
 {
-    private byte[] messageToSend;
+    public byte[] messageToSend;
 
     // Variables used for debugging
     public bool front;
@@ -17,6 +17,7 @@ public class VestInteraction : ElementInteraction
     void Start()
     {
         messageToSend = new byte[4];
+        ResetMessageToSend();
     }
 
     // Update is called once per frame
@@ -73,26 +74,27 @@ public class VestInteraction : ElementInteraction
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("collided");
         Vector3 cameraRelative = this.transform.InverseTransformPoint(collision.transform.position);
 
         if (cameraRelative.x > 0)
         {
-            //Debug.Log("right");
+            Debug.Log("right");
             HitRight();
         }
         if (cameraRelative.x < 0)
         {
-            //Debug.Log("left");
+            Debug.Log("left");
             HitLeft();
         }
         if (cameraRelative.z > 0)
         {
-            //Debug.Log("front");
+            Debug.Log("front");
             HitFront();
         }
         if (cameraRelative.x < 0)
         {
-            //Debug.Log("back")}
+            Debug.Log("back");
             HitBack();
         }
     }

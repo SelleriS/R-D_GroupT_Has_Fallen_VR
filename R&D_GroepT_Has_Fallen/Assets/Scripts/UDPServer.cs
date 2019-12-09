@@ -29,7 +29,8 @@ public class UDPServer : MonoBehaviour
     public string serverIP; //default local
     public int receivePort; // define > init
     public string dataString;
-    public string messageSend;
+    public byte[] lastMessageSend;
+    public GameObject cameraRig;
     public GameObject prefabGatlinGun;
     public GameObject prefabPistol;
     public GameObject prefabVest;
@@ -43,6 +44,7 @@ public class UDPServer : MonoBehaviour
     private Dictionary<GameObject, IPEndPoint> vests;
     private Dictionary<IPAddress, DateTime> timestamps;
     private Vector3 positionOffset = new Vector3(0f, -0.23f, 0f); // used to display object underneath eachother and to check availablility of a position
+    private int sendCounter;
 
     // start from unity3d
     public void Start()
@@ -72,7 +74,12 @@ public class UDPServer : MonoBehaviour
     {
         dispatcher.InvokePending();
         //CheckActivityStatus(); // Removes weapons that haven't been active for a long time
-        SendVestMessages();
+        if (sendCounter == 9)
+        {
+            SendVestMessages();
+            sendCounter = 0;
+        }
+        else { sendCounter++; }
     }
 
     // To prevent SocketExeption error: Address already in use
@@ -93,23 +100,25 @@ public class UDPServer : MonoBehaviour
                     + "\nLast client IP : " + lastClientIP + " \n"
                     + "Last client Port : " + lastClientPort + " \n"
                     + "\nMessage received in hex :\n" + dataString +  "\n"
-                    + "Last message send : " + messageSend + " \n"
+                    + "Last message send : " + ByteArrayToString(lastMessageSend) + " \n"
                 , style);
     }
 
     // send thread
     private void SendData(IPEndPoint clientEndpoint, byte[] data)
     {
-        client = new UdpClient();
-        try
-        {
-            // Send message to remote client
-            client.Send(data, data.Length, clientEndpoint);
-        }
-        catch (Exception err)
-        {
-            print(err.ToString());
-        }
+        
+            client = new UdpClient();
+            try
+            {
+                // Send message to remote client
+                client.Send(data, data.Length, clientEndpoint);
+            }
+            catch (Exception err)
+            {
+                print(err.ToString());
+            }
+        
     }
 
     // receive thread
@@ -185,23 +194,31 @@ public class UDPServer : MonoBehaviour
                 {
                     case WeaponType.GatlinGun:
                         prefab = prefabGatlinGun;
+                        // Create gameobject
+                        weapon = Instantiate(prefab, new Vector3(-0.2f, 1f, -0.5f), Quaternion.Euler(new Vector3(0, 0, 0)));
+                        //Set parent of the object
+                        weapon.transform.parent = cameraRig.transform.Find("GGTracker");
                         break;
 
                     case WeaponType.Pistol:
                         prefab = prefabPistol;
+                        // Create gameobject
+                        weapon = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.Euler(new Vector3(0, 180, 0)));
+                        //Set parent of the object
+                        weapon.transform.parent = cameraRig.transform.Find("57Tracker");
                         break;
 
                     case WeaponType.Vest:
                         prefab = prefabVest;
                         AcknowledgeVest(clientEndpoint);
-                        weapon = Instantiate(prefab, GetNewPosition(), Quaternion.identity);
+                        weapon = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.Euler(new Vector3(0, 180, 0)));
+                        weapon.transform.parent = cameraRig.transform.Find("VestTracker");
                         weapon.GetComponent<VestInteraction>().SetWeaponType(weaponType);
                         clients.Add(clientEndpoint.Address, weapon);
                         vests.Add(weapon, clientEndpoint);
                         return;
                 }
-                // Create gameobject
-                weapon = Instantiate(prefab, GetNewPosition(), Quaternion.identity);
+                
                 // Add IPaddress as key and new gameobject as value to the dictionary clients
                 clients.Add(clientEndpoint.Address, weapon);
                 // Set the weapon type field of the created weapon
@@ -275,19 +292,21 @@ public class UDPServer : MonoBehaviour
     private void AcknowledgeVest(IPEndPoint clientEndpoint)
     {
         string acknowledgement = "ack!";
-        byte[] ack = Encoding.UTF8.GetBytes(acknowledgement);
-        messageSend = acknowledgement;
-        SendData(clientEndpoint, ack);
+        lastMessageSend = Encoding.UTF8.GetBytes(acknowledgement);
+        SendData(clientEndpoint, lastMessageSend);
     }
 
     private void SendVestMessages()
     {
-        foreach (KeyValuePair<GameObject, IPEndPoint> vest in vests)
+        if(vests.Count != 0)
         {
-            byte[] message = vest.Key.GetComponent<VestInteraction>().GetMessageToSend();
-            messageSend = ByteArrayToString(message);
-            SendData(vest.Value, message);
-            vest.Key.GetComponent<VestInteraction>().ResetMessageToSend(); // Reset the message after it is read;
+            foreach (KeyValuePair<GameObject, IPEndPoint> vest in vests)
+            {
+                byte[] message = vest.Key.GetComponent<VestInteraction>().GetMessageToSend();
+                lastMessageSend = message;
+                SendData(vest.Value, message);
+                vest.Key.GetComponent<VestInteraction>().ResetMessageToSend(); // Reset the message after it is read;
+            }
         }
     }
 }

@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.rd_groept_has_fallen.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "C:\\Unity\\R-D_GroupT_Has_Fallen_VR\\R&D_GroepT_Has_Fallen\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "R&D_GroepT_Has_Fallen [Testing]"
+        }
+      }
+    }
+  ]
+}

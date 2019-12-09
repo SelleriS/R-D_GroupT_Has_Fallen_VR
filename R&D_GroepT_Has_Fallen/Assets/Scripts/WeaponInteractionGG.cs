@@ -31,7 +31,7 @@ public class WeaponInteractionGG : WeaponInteraction
         movablePieceTransform = transform.Find("Barrels").transform;
         minRPM = 0;
         maxRPM = 400;
-        bulletForwardForce = 1000;
+        bulletForwardForce = 4000;
         audioSrc = GetComponent<AudioSource>();
         muzzleFlash = GetComponent<ParticleSystem>();
     }
@@ -55,7 +55,7 @@ public class WeaponInteractionGG : WeaponInteraction
         float increment = (remapRPM / (60 * 90)) * 360; // devide by 60 to have rounds per second. Devide by 90 becuse VR is 90fps. 360 because a round is 360 degrees
         float triggerYRot = triggerTransform.localEulerAngles.y + increment;
         totalDegreesRotated += increment;
-        triggerTransform.localEulerAngles = new Vector3(triggerTransform.localEulerAngles.x, triggerYRot, triggerTransform.localEulerAngles.z);
+        triggerTransform.localEulerAngles = new Vector3(triggerTransform.localEulerAngles.x, -triggerYRot, triggerTransform.localEulerAngles.z);
         if(triggerCurrentValue != 0 && totalDegreesRotated >= 60) //There are 6 barrels int total => shoot every 60°
         {
             FireBullet();

@@ -4842,20 +4842,6 @@ Transform:
   m_Father: {fileID: 4069210865327094405}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &4980202141226277444
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1018909041691052182}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 6255687079079774844, guid: ad98ce1310cf744c4bda6316dcc29926, type: 3}
 --- !u!82 &3145708055862962495
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4974,19 +4960,19 @@ MonoBehaviour:
   weaponLoaded: 0
   bulletEmitter: {fileID: 7420980059084002146}
   bullet: {fileID: 609160683338960577, guid: a0302d303cdad41d7a04e13fe76984ed, type: 3}
---- !u!114 &6215872216018724309
-MonoBehaviour:
+--- !u!65 &4823383982196301950
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1018909041691052182}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56ae9db0e41fc4a2eac7f33b359893f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DeviceSerial: 
+  serializedVersion: 2
+  m_Size: {x: 0.019873902, y: 0.019873902, z: 0.1}
+  m_Center: {x: 0, y: 0, z: -0.03}
 --- !u!1001 &9007772608957157791
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5032,7 +5018,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: ad98ce1310cf744c4bda6316dcc29926,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ad98ce1310cf744c4bda6316dcc29926,
         type: 3}
@@ -5042,7 +5028,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: ad98ce1310cf744c4bda6316dcc29926,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ad98ce1310cf744c4bda6316dcc29926,
         type: 3}
@@ -5057,7 +5043,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: ad98ce1310cf744c4bda6316dcc29926,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ad98ce1310cf744c4bda6316dcc29926,
         type: 3}
